@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Title is set dynamically from JSON data.title -->
+  <title>Q3eSE_LS0_U01_01_QClassroom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body role="document">
+  <main role="main" aria-label="Lesson player interface">
+
+    <!-- ── NEW: Lesson title from JSON ── -->
+    <h1 id="lessonTitle" aria-label="Lesson title"></h1>
+
+    <!-- Shared speaking indicator -->
+    <div class="speaking-indicator" id="speakingIndicator" role="status" aria-live="polite">
+      <span class="pulse">🔊</span> Speaking...
+    </div>
+
+    <!-- LESSON MODE -->
+    <section id="lessonMode">
+      <p id="speaker" aria-label="Speaker name"></p>
+      <p id="q" aria-live="polite"></p>
+      <p id="keyWords" aria-label="Keywords"></p>
+
+      <input type="text" id="playList" placeholder="Enter play list — separate numbers by commas." />
+      <label style="display:block; margin-top:0.5em; font-weight:normal;">
+        <input type="checkbox" id="usePlayList" />
+        Use playlist (numbers separated by commas)
+      </label>
+
+      <details id="definition" aria-label="Definition section">
+        <summary aria-label="Show or hide definition">Definition</summary>
+        <p id="def"></p>
+      </details>
+
+      <details id="illustrations" style="display:none;" aria-label="Illustration section">
+        <summary aria-label="Show or hide illustration">Illustration</summary>
+        <img id="image" alt="Related illustration" width="200" height="200" style="display:none;" />
+      </details>
+
+      <details id="englishDetails" open aria-label="English script of audio">
+        <summary aria-label="Show or hide English script">English Script:</summary>
+        <p id="english"></p>
+      </details>
+
+      <div id="scrambleCheckboxContainer">
+        <label id="scrambleCheckboxLabel" for="scrambleCheckbox">Scramble Script:</label>
+        <input type="checkbox" id="scrambleCheckbox" aria-label="Toggle scrambled script" />
+        <label id="speakScrambledLabel" for="speakScrambledCheckbox" style="margin-left:1em;">Speak Scrambled:</label>
+        <input type="checkbox" id="speakScrambledCheckbox" aria-label="Speak scrambled text with pauses" />
+      </div>
+      <p id="scrambledText"></p>
+
+      <details id="arabicDetails" open aria-label="Arabic translation of script">
+        <summary aria-label="Show or hide Arabic translation">Arabic Translation:</summary>
+        <p id="arabic"></p>
+      </details>
+
+      <p id="refer_to_container"><strong>Refer to:</strong> <span id="refer_to"></span></p>
+      <p id="back_to_container"><strong>Back to:</strong> <span id="back_to"></span></p>
+
+      <audio id="audio" controls aria-label="Audio player">
+        <source id="audioSource" src="" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <hr />
+
+      <div class="controls" role="group" aria-label="Navigation controls">
+        <input
+          type="number"
+          id="audioIndex"
+          min="1"
+          placeholder="#"
+          aria-label="Enter clip number"
+        />
+        <button id="search" aria-label="Search for audio by number">&#128269;</button>
+        <button id="prev" aria-label="Previous audio clip">&#9664;</button>
+        <button id="next" aria-label="Next audio clip">&#9654;</button>
+
+        <label aria-label="Autoplay next audio">
+          <input type="checkbox" id="autoPlay" aria-checked="false" />
+          Auto play next audio clip
+        </label>
+
+        <div id="questionBasedOnAudio"></div>
+      </div>
+
+      <details aria-label="Text-to-speech options">
+        <summary aria-label="Show or hide text-to-speech controls">TTS</summary>
+        <div class="tts-buttons" role="group" aria-label="TTS controls">
+          <button id="speakEnglish" aria-label="Text to speech: read English script">TTS-English</button>
+          <button id="speakArabic" aria-label="Text to speech: read Arabic translation">TTS-Arabic</button>
+          <button id="stop" aria-label="Stop text to speech">Stop TTS</button>
+          <button id="speakSelection" aria-label="Text to speech: read selected text">TTS-Selected</button>
+        </div>
+      </details>
+
+      <div>
+        <details id="answerDetails" aria-label="Answer section">
+          <summary aria-label="Show or hide answer">Answer</summary>
+          <div id="answer"></div>
+        </details>
+      </div>
+
+      <hr />
+
+      <small aria-label="Tip: Use arrow keys">💡 Tip: Use ← / → to navigate.</small>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <p>Created by <span>Eltayeb Mohamed</span> | <span>© 2025 Eltayeb Mohamed</span>. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
